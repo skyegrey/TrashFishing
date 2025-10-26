@@ -1,0 +1,100 @@
+[gd_scene load_steps=18 format=3 uid="uid://c1cxcm8g5b5bb"]
+
+[ext_resource type="Texture2D" uid="uid://cb2ptu8nmpht8" path="res://assets/backgrounds/0.png" id="1_85g3d"]
+[ext_resource type="Texture2D" uid="uid://py27f8awc8pe" path="res://assets/backgrounds/1.png" id="2_choun"]
+[ext_resource type="Texture2D" uid="uid://dec2omkqnyb1r" path="res://assets/backgrounds/2.png" id="3_ya4ey"]
+[ext_resource type="Texture2D" uid="uid://bj5b8a77wlu5n" path="res://assets/backgrounds/3.png" id="4_eb6dy"]
+[ext_resource type="Texture2D" uid="uid://dy6yo1k4kiorg" path="res://assets/backgrounds/4.png" id="5_trceg"]
+[ext_resource type="Texture2D" uid="uid://bn81k5osb0yh3" path="res://assets/backgrounds/5.png" id="6_a8y0u"]
+[ext_resource type="Texture2D" uid="uid://fl1vjec3n8c3" path="res://assets/backgrounds/6.png" id="7_jkv2x"]
+[ext_resource type="Texture2D" uid="uid://bvv0c6quq50fm" path="res://assets/backgrounds/7.png" id="8_jbj1t"]
+[ext_resource type="Texture2D" uid="uid://b3oj6jktdlsao" path="res://assets/backgrounds/8.png" id="9_muem4"]
+[ext_resource type="Texture2D" uid="uid://cli0drvmitvqv" path="res://assets/bobbers/starter-bobber.png" id="10_choun"]
+[ext_resource type="Script" uid="uid://cv7bd4vaxdc0m" path="res://scripts/bobber.gd" id="10_eb6dy"]
+[ext_resource type="Script" uid="uid://74h4dehxvh1k" path="res://scripts/fish.gd" id="12_trceg"]
+[ext_resource type="Texture2D" uid="uid://b12nhvi63wohi" path="res://assets/fish/small.png" id="13_jkv2x"]
+[ext_resource type="Texture2D" uid="uid://c2g6w6srlib6b" path="res://assets/player/with-boat.png" id="14_a8y0u"]
+[ext_resource type="Script" uid="uid://bt0ab5xwrngy4" path="res://scripts/player_node.gd" id="14_jkv2x"]
+[ext_resource type="Texture2D" uid="uid://ckqnl1y6n4qp1" path="res://assets/player/exclamation-point.png" id="16_jbj1t"]
+[ext_resource type="Script" uid="uid://c2t1n1bsgolps" path="res://scripts/player_camera.gd" id="17_muem4"]
+
+[node name="Main" type="Node2D"]
+
+[node name="Background" type="Node2D" parent="."]
+position = Vector2(384, 53)
+scale = Vector2(4, 4)
+
+[node name="Sprite2D" type="Sprite2D" parent="Background"]
+texture = ExtResource("1_85g3d")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D2" type="Sprite2D" parent="Background"]
+texture = ExtResource("2_choun")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D3" type="Sprite2D" parent="Background"]
+texture = ExtResource("3_ya4ey")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D4" type="Sprite2D" parent="Background"]
+texture = ExtResource("4_eb6dy")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D5" type="Sprite2D" parent="Background"]
+texture = ExtResource("5_trceg")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D6" type="Sprite2D" parent="Background"]
+texture = ExtResource("6_a8y0u")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D7" type="Sprite2D" parent="Background"]
+texture = ExtResource("7_jkv2x")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D8" type="Sprite2D" parent="Background"]
+texture = ExtResource("8_jbj1t")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D9" type="Sprite2D" parent="Background"]
+texture = ExtResource("9_muem4")
+metadata/_edit_lock_ = true
+
+[node name="Bobber" type="Node2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(11, 99)
+script = ExtResource("10_eb6dy")
+
+[node name="Bobber" type="Sprite2D" parent="Bobber"]
+scale = Vector2(4, 4)
+texture = ExtResource("10_choun")
+metadata/_edit_lock_ = true
+
+[node name="Fish" type="Node2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-266, 152)
+script = ExtResource("12_trceg")
+
+[node name="Sprite2D" type="Sprite2D" parent="Fish"]
+scale = Vector2(4, 4)
+texture = ExtResource("13_jkv2x")
+metadata/_edit_lock_ = true
+
+[node name="PlayerNode" type="Node2D" parent="."]
+position = Vector2(202, -5)
+script = ExtResource("14_jkv2x")
+
+[node name="PlayerSprite2D" type="Sprite2D" parent="PlayerNode"]
+scale = Vector2(4, 4)
+texture = ExtResource("14_a8y0u")
+metadata/_edit_lock_ = true
+
+[node name="ExclamationPointSprite2D" type="Sprite2D" parent="PlayerNode"]
+self_modulate = Color(1, 1, 1, 0)
+position = Vector2(-32, -20)
+scale = Vector2(4, 4)
+texture = ExtResource("16_jbj1t")
+
+[node name="PlayerCamera" type="Camera2D" parent="."]
+offset = Vector2(32, 0)
+script = ExtResource("17_muem4")
