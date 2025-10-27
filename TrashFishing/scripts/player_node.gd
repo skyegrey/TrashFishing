@@ -2,12 +2,16 @@ class_name PlayerNode extends Node2D
 
 @onready var fish = %Fish
 @onready var exclamation_point_sprite_2d = $ExclamationPointSprite2D
+@onready var inventory = %Inventory
 
 @export var exclamation_point_start_position: Vector2 = Vector2(-32, -20)
 @export var exclamation_point_finish_position: Vector2 = Vector2(-32, -70)
 
 # State
 var is_fish_at_bobber: bool = false
+
+# Signals
+signal caught_fish
 
 func _ready():
 	fish.has_approached_bobber.connect(_on_fish_approached_bobber)
@@ -42,6 +46,9 @@ func _catch_fish():
 	_reset_exclamation_point()
 	fish.queue_free()
 	_play_catch_animation()
+	caught_fish.emit()
+	inventory.add_item_to_inventory("Glass")
+	
 
 func _reset_exclamation_point():
 	exclamation_point_sprite_2d.self_modulate.a = 0

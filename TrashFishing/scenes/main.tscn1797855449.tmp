@@ -1,7 +1,6 @@
-[gd_scene load_steps=23 format=3 uid="uid://c1cxcm8g5b5bb"]
+[gd_scene load_steps=18 format=3 uid="uid://c1cxcm8g5b5bb"]
 
 [ext_resource type="Texture2D" uid="uid://cb2ptu8nmpht8" path="res://assets/backgrounds/0.png" id="1_85g3d"]
-[ext_resource type="Script" uid="uid://dkuwb3vitrlsi" path="res://scripts/inventory.gd" id="1_yc10j"]
 [ext_resource type="Texture2D" uid="uid://py27f8awc8pe" path="res://assets/backgrounds/1.png" id="2_choun"]
 [ext_resource type="Texture2D" uid="uid://dec2omkqnyb1r" path="res://assets/backgrounds/2.png" id="3_ya4ey"]
 [ext_resource type="Texture2D" uid="uid://bj5b8a77wlu5n" path="res://assets/backgrounds/3.png" id="4_eb6dy"]
@@ -18,19 +17,8 @@
 [ext_resource type="Script" uid="uid://bt0ab5xwrngy4" path="res://scripts/player_node.gd" id="14_jkv2x"]
 [ext_resource type="Texture2D" uid="uid://ckqnl1y6n4qp1" path="res://assets/player/exclamation-point.png" id="16_jbj1t"]
 [ext_resource type="Script" uid="uid://c2t1n1bsgolps" path="res://scripts/player_camera.gd" id="17_muem4"]
-[ext_resource type="Script" uid="uid://yikt0861yh3e" path="res://scenes/ui.gd" id="18_0ld40"]
-[ext_resource type="Texture2D" uid="uid://ctqics50hh361" path="res://assets/items/Items.png" id="18_dp3eg"]
-[ext_resource type="Texture2D" uid="uid://cgi2d0bco0ulu" path="res://assets/items/glass-inventory-icon.png" id="20_gqmmt"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0ld40"]
-atlas = ExtResource("18_dp3eg")
-region = Rect2(44, 4, 18, 18)
 
 [node name="Main" type="Node2D"]
-
-[node name="Inventory" type="Node" parent="."]
-unique_name_in_owner = true
-script = ExtResource("1_yc10j")
 
 [node name="Background" type="Node2D" parent="."]
 position = Vector2(384, 53)
@@ -109,107 +97,5 @@ scale = Vector2(4, 4)
 texture = ExtResource("16_jbj1t")
 
 [node name="PlayerCamera" type="Camera2D" parent="."]
+offset = Vector2(32, 0)
 script = ExtResource("17_muem4")
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="UI" type="Control" parent="CanvasLayer"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("18_0ld40")
-
-[node name="FishCatchDisplay" type="Control" parent="CanvasLayer/UI"]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.894737, 0.77686)
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/UI/FishCatchDisplay"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = 81.0
-offset_right = 90.0
-offset_bottom = -132.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Label" type="Label" parent="CanvasLayer/UI/FishCatchDisplay/VBoxContainer"]
-layout_mode = 2
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 10
-theme_override_font_sizes/font_size = 50
-text = "You Caught Glass"
-horizontal_alignment = 1
-
-[node name="Control" type="Control" parent="CanvasLayer/UI/FishCatchDisplay/VBoxContainer"]
-custom_minimum_size = Vector2(0, 72)
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/UI/FishCatchDisplay/VBoxContainer/Control"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -9.0
-offset_top = -9.0
-offset_right = 9.0
-offset_bottom = 9.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(4, 4)
-pivot_offset = Vector2(9, 9)
-texture = SubResource("AtlasTexture_0ld40")
-stretch_mode = 5
-
-[node name="InventoryDisplay" type="Control" parent="CanvasLayer/UI"]
-anchors_preset = 0
-offset_left = 14.0
-offset_top = 11.0
-offset_right = 250.0
-offset_bottom = 230.0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/UI/InventoryDisplay"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-metadata/_edit_lock_ = true
-
-[node name="Label" type="Label" parent="CanvasLayer/UI/InventoryDisplay/VBoxContainer"]
-layout_mode = 2
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 7
-theme_override_font_sizes/font_size = 25
-text = "Inventory"
-
-[node name="InventoryItemDisplay" type="VBoxContainer" parent="CanvasLayer/UI/InventoryDisplay/VBoxContainer"]
-layout_mode = 2
-
-[node name="GlassInventoryItemContainer" type="HBoxContainer" parent="CanvasLayer/UI/InventoryDisplay/VBoxContainer/InventoryItemDisplay"]
-layout_mode = 2
-theme_override_constants/separation = 10
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/UI/InventoryDisplay/VBoxContainer/InventoryItemDisplay/GlassInventoryItemContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-texture = ExtResource("20_gqmmt")
-stretch_mode = 5
-
-[node name="Label" type="Label" parent="CanvasLayer/UI/InventoryDisplay/VBoxContainer/InventoryItemDisplay/GlassInventoryItemContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 23
-text = "0"

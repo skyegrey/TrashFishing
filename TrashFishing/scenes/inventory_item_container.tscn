@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://dpphmi2vwlcis"]
+
+[ext_resource type="Texture2D" uid="uid://ctqics50hh361" path="res://assets/items/Items.png" id="1_8ox7d"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ox7d"]
+resource_local_to_scene = true
+atlas = ExtResource("1_8ox7d")
+region = Rect2(100, 8, 10, 10)
+
+[node name="InventoryItemContainer" type="HBoxContainer"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+texture = SubResource("AtlasTexture_8ox7d")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+theme_override_font_sizes/font_size = 23
+text = "11"
